@@ -53,9 +53,9 @@ export function QuoteAnalyzer({
   }
 
   return (
-    <section className="card shadow-card" aria-labelledby="analyze-h">
+    <section className="card shadow-card-lg rounded-3xl" aria-labelledby="analyze-h">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
+        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-card-lavender text-accent shadow-sm">
           <Icon name="file" className="h-5 w-5" />
         </div>
         <div>

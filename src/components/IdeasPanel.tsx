@@ -10,8 +10,8 @@ import { AiError, AiLoading } from './ui';
 function List({ title, items }: { title: string; items: string[] }) {
   if (items.length === 0) return null;
   return (
-    <div className="rounded-xl border border-line bg-paper/60 p-4">
-      <h4 className="text-xs font-bold uppercase tracking-wider text-ink-soft">{title}</h4>
+    <div className="rounded-2xl border border-accent/15 bg-card-lavender/30 p-5 shadow-sm">
+      <h4 className="text-xs font-bold uppercase tracking-wider text-accent">{title}</h4>
       <ul className="mt-2.5 list-disc space-y-1.5 pl-4 text-xs font-medium leading-relaxed text-ink">
         {items.map((item) => (
           <li key={item}>{item}</li>
@@ -41,10 +41,10 @@ export default function IdeasPanel({ plan }: { plan: Plan }) {
 
   const data = ai.state.status === 'done' ? ai.state.data : null;
   return (
-    <section className="card" aria-labelledby="ideas-h">
+    <section className="card shadow-card-lg rounded-3xl" aria-labelledby="ideas-h">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-card-lavender text-accent shadow-sm">
             <Icon name="sparkle" className="h-5 w-5" />
           </div>
           <div>

@@ -60,7 +60,7 @@ export function ProgressPanel({
       <button
         ref={toggleRef}
         type="button"
-        className="no-print fixed bottom-5 left-5 z-40 flex min-h-12 items-center gap-2.5 rounded-full border border-line/80 bg-card/95 px-4.5 py-2 text-xs font-bold text-ink shadow-elevated backdrop-blur-md transition-all hover:border-accent/40 hover:shadow-lg sm:text-sm"
+        className="no-print fixed bottom-6 left-6 z-40 flex min-h-12 items-center gap-3 rounded-full border border-line/60 bg-card/95 px-5 py-2.5 text-xs font-bold text-ink shadow-elevated backdrop-blur-md transition-all hover:border-accent/40 hover:scale-105 sm:text-sm"
         aria-expanded={open}
         aria-controls="progress-panel"
         onClick={onToggle}
@@ -76,11 +76,11 @@ export function ProgressPanel({
         hidden={!open}
         className={`no-print fixed inset-y-0 left-0 z-50 ${
           open ? 'flex' : 'hidden'
-        } w-[min(24rem,100vw)] flex-col border-r border-line bg-card shadow-elevated backdrop-blur-lg transition-transform duration-300`}
+        } w-[min(24rem,100vw)] flex-col border-r border-line/80 bg-card/98 shadow-elevated backdrop-blur-lg transition-transform duration-300`}
       >
         <div className="flex items-center justify-between gap-2 border-b border-line/80 px-5 py-4">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent-soft text-accent">
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-card-lavender text-accent shadow-sm">
               <Icon name="route" className="h-4 w-4" />
             </div>
             <h2 className="text-base font-bold text-ink">Plan progress</h2>
@@ -88,7 +88,7 @@ export function ProgressPanel({
           <button
             ref={closeRef}
             type="button"
-            className="btn-secondary min-h-8 px-3 text-xs font-semibold"
+            className="btn-secondary min-h-8 rounded-xl px-3 text-xs font-semibold"
             onClick={onToggle}
           >
             <Icon name="x" className="h-3.5 w-3.5" />
@@ -97,7 +97,7 @@ export function ProgressPanel({
         </div>
 
         <div className="flex-1 space-y-6 overflow-y-auto p-5">
-          <div className="rounded-2xl border border-line bg-paper/60 p-4">
+          <div className="rounded-3xl border border-accent/20 bg-card-lavender/40 p-5 shadow-sm">
             <p className="text-xs font-semibold text-ink sm:text-sm">
               <strong className="text-accent">{readiness.percent}% ready.</strong>{' '}
               {readiness.tasksDone} of {readiness.tasksTotal} tasks done, {readiness.quotesVerified}{' '}

@@ -69,12 +69,12 @@ export function TaskRow({
       </span>
 
       <div
-        className={`rounded-2xl border p-4.5 transition-all shadow-sm ${
+        className={`rounded-3xl border p-5 transition-all shadow-sm ${
           flagged
             ? 'border-warn/40 bg-warn-soft/40 shadow-sm'
             : done
               ? 'border-line/60 bg-card/60 opacity-90'
-              : 'border-line bg-card hover:border-line/90'
+              : 'border-line/60 bg-card hover:border-line/90 hover:shadow-card'
         }`}
       >
         <div className="flex flex-wrap items-start justify-between gap-3">

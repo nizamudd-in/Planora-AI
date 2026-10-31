@@ -38,27 +38,29 @@ export function Header({ plan, tab, onTabChange, onReset, tabs, refs, onKeyDown 
   return (
     <header
       role="banner"
-      className="no-print w-full md:w-64 lg:w-72 md:shrink-0 md:sticky md:top-0 md:h-screen md:flex md:flex-col md:justify-between border-b md:border-b-0 md:border-r border-line bg-card/90 shadow-sm backdrop-blur-md transition-colors duration-200 z-30 p-4 sm:p-5 overflow-y-auto"
+      className="no-print w-full md:w-64 lg:w-72 md:shrink-0 md:sticky md:top-3 md:h-[calc(100vh-1.5rem)] md:m-3 md:rounded-3xl md:flex md:flex-col md:justify-between border border-line/60 bg-card/95 shadow-card backdrop-blur-md transition-colors duration-200 z-30 p-4 sm:p-5 overflow-y-auto"
     >
       <div>
-        <div className="flex items-center justify-between gap-3 border-b border-line/60 pb-4">
+        <div className="flex items-center justify-between gap-3 border-b border-line/40 pb-4">
           <div className="flex items-center gap-3">
-            <BrandMark className="h-9 w-9 shrink-0 shadow-sm" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-card-lavender/60 shadow-sm shrink-0">
+              <BrandMark className="h-7 w-7" />
+            </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h1 className="font-display text-xl font-bold tracking-tight text-ink truncate">
+                <h1 className="font-display text-lg font-bold tracking-tight text-ink truncate">
                   {BRAND.name}
                 </h1>
-                <span className="rounded-full bg-accent-soft px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent shrink-0">
-                  OS
+                <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent shrink-0">
+                  AI
                 </span>
               </div>
-              <p className="text-[11px] font-medium text-ink-soft truncate">One connected plan.</p>
+              <p className="text-[11px] font-medium text-ink-soft truncate">Intelligent event OS</p>
             </div>
           </div>
           <button
             type="button"
-            className="btn-secondary min-h-10 min-w-10 px-2.5 text-xs font-semibold flex items-center justify-center shrink-0"
+            className="btn-secondary min-h-10 min-w-10 rounded-2xl px-2 text-xs font-semibold flex items-center justify-center shrink-0 hover:bg-paper"
             onClick={toggle}
             aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
           >
@@ -66,14 +68,14 @@ export function Header({ plan, tab, onTabChange, onReset, tabs, refs, onKeyDown 
           </button>
         </div>
 
-        <nav aria-label="Plan navigation" className="mt-4">
-          <p className="mb-2 hidden md:block px-1 text-[10px] font-bold uppercase tracking-wider text-ink-soft">
-            Sections
+        <nav aria-label="Plan navigation" className="mt-5">
+          <p className="mb-2.5 hidden md:block px-1 text-[11px] font-bold uppercase tracking-wider text-ink-soft">
+            Navigation
           </p>
           <div
             role="tablist"
             aria-label="Plan sections"
-            className="flex md:flex-col gap-1.5 overflow-x-auto md:overflow-x-visible p-1 md:p-0 rounded-2xl md:rounded-none bg-paper/60 md:bg-transparent"
+            className="flex md:flex-col gap-1.5 overflow-x-auto md:overflow-x-visible p-1.5 md:p-0 rounded-2xl md:rounded-none bg-paper/60 md:bg-transparent"
           >
             {tabs.map((t) => {
               const active = tab === t.id;
@@ -89,9 +91,9 @@ export function Header({ plan, tab, onTabChange, onReset, tabs, refs, onKeyDown 
                   aria-selected={active}
                   aria-controls={`panel-${t.id}`}
                   tabIndex={active ? 0 : -1}
-                  className={`flex min-h-11 items-center gap-2.5 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold transition-all duration-150 cursor-pointer shrink-0 md:shrink ${
+                  className={`flex min-h-11 items-center gap-3 rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shrink-0 md:shrink ${
                     active
-                      ? 'bg-accent text-on-accent shadow-sm'
+                      ? 'bg-accent text-on-accent shadow-md shadow-accent/25'
                       : 'text-ink-soft hover:bg-paper hover:text-ink'
                   }`}
                   onClick={() => onTabChange(t.id)}
@@ -100,7 +102,7 @@ export function Header({ plan, tab, onTabChange, onReset, tabs, refs, onKeyDown 
                   <Icon name={t.icon} className="h-4 w-4 shrink-0" />
                   <span className="truncate">{t.label}</span>
                   {active && (
-                    <span className="hidden md:inline-block ml-auto h-1.5 w-1.5 rounded-full bg-on-accent" />
+                    <span className="hidden md:inline-block ml-auto h-2 w-2 rounded-full bg-on-accent" />
                   )}
                 </button>
               );
@@ -110,32 +112,32 @@ export function Header({ plan, tab, onTabChange, onReset, tabs, refs, onKeyDown 
 
         {readiness && (
           <div
-            className="mt-4 md:mt-6 rounded-2xl border border-line/60 bg-paper/60 p-3.5"
+            className="mt-5 md:mt-6 rounded-3xl border border-accent/20 bg-card-lavender/40 p-4 transition-all"
             aria-label="Plan readiness"
           >
             <div className="flex items-baseline justify-between text-xs font-semibold">
-              <span className="flex items-center gap-1.5 text-ink">
-                <span className="inline-block h-2 w-2 rounded-full bg-accent animate-pulse" />
+              <span className="flex items-center gap-2 text-ink font-bold">
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent animate-pulse" />
                 Plan readiness {readiness.percent}%
               </span>
-              <span className="text-[11px] font-normal text-ink-soft">
+              <span className="text-[11px] font-medium text-ink-soft">
                 {readiness.tasksDone}/{readiness.tasksTotal} tasks
               </span>
             </div>
             <progress
-              className="mt-2 h-1.5 w-full overflow-hidden rounded-full accent-accent"
+              className="mt-2.5 h-2 w-full overflow-hidden rounded-full accent-accent"
               max={100}
               value={readiness.percent}
               aria-label="Plan readiness percent"
             />
-            <p className="mt-1 text-[11px] text-ink-soft text-right">
-              {readiness.quotesVerified}/{readiness.quotesTotal} vendors
+            <p className="mt-1.5 text-[11px] font-medium text-ink-soft text-right">
+              {readiness.quotesVerified}/{readiness.quotesTotal} vendors verified
             </p>
           </div>
         )}
       </div>
 
-      <div className="mt-4 md:mt-auto pt-3 border-t border-line/60 space-y-2">
+      <div className="mt-4 md:mt-auto pt-3 border-t border-line/40 space-y-2">
         {plan && (
           <div className="flex flex-wrap items-center gap-1.5">
             <button

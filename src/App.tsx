@@ -133,10 +133,10 @@ export default function App({
           {notice && (
             <div
               role="status"
-              className={`mb-6 flex items-start justify-between gap-3 rounded-2xl border p-4 text-sm shadow-sm ${
+              className={`mb-6 flex items-start justify-between gap-3 rounded-3xl border p-4 text-sm shadow-sm ${
                 notice.kind === 'bad_link'
                   ? 'border-warn/40 bg-warn-soft text-warn'
-                  : 'border-line bg-accent-soft text-ink'
+                  : 'border-accent/20 bg-card-lavender/50 text-ink'
               }`}
             >
               <p className="flex items-center gap-2 font-medium">

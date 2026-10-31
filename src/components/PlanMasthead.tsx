@@ -18,18 +18,18 @@ export function PlanMasthead({ plan, today }: { plan: Plan; today: string }) {
   return (
     <section
       aria-label="Plan summary"
-      className="card mb-6 border-line/80 bg-gradient-to-br from-card via-card to-accent-soft/30 p-5 shadow-card sm:p-6"
+      className="card mb-6 border-line/60 bg-card p-6 sm:p-7 shadow-card-lg rounded-3xl relative overflow-hidden"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent-soft px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
+        <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-accent shadow-sm">
           <Icon name="sparkle" className="h-3.5 w-3.5 text-accent" />
           {OCCASION_LABELS[plan.occasion]}
         </span>
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
+          className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold shadow-sm ${
             isUrgent
               ? 'border border-warn/30 bg-warn-soft text-warn'
-              : 'border border-line bg-paper text-ink-soft'
+              : 'border border-line/60 bg-paper text-ink-soft'
           }`}
         >
           <Icon name="clock" className="h-3.5 w-3.5" />
@@ -37,7 +37,7 @@ export function PlanMasthead({ plan, today }: { plan: Plan; today: string }) {
         </span>
       </div>
 
-      <div className="mt-3">
+      <div className="mt-4">
         <h2
           id="plan-title"
           tabIndex={-1}
@@ -50,24 +50,24 @@ export function PlanMasthead({ plan, today }: { plan: Plan; today: string }) {
           </span>
         </h2>
         {plan.vibe && (
-          <p className="mt-1.5 inline-flex items-center gap-2 rounded-lg bg-paper px-2.5 py-1 text-sm font-medium text-ink-soft">
-            <span className="text-xs uppercase tracking-wide text-ink-soft">Theme</span>
-            <span>&ldquo;{plan.vibe}&rdquo;</span>
+          <p className="mt-2 inline-flex items-center gap-2 rounded-xl bg-paper/80 px-3 py-1.5 text-sm font-medium text-ink-soft border border-line/50">
+            <span className="text-xs font-bold uppercase tracking-wide text-accent">Theme</span>
+            <span className="text-ink font-semibold">&ldquo;{plan.vibe}&rdquo;</span>
           </p>
         )}
       </div>
 
-      <ul className="mt-5 flex flex-wrap gap-2 text-xs font-semibold sm:gap-3 sm:text-sm">
-        <li className="flex items-center gap-2 rounded-xl border border-line bg-paper/80 px-3 py-2 text-ink">
+      <ul className="mt-5 flex flex-wrap gap-2.5 text-xs font-semibold sm:gap-3 sm:text-sm">
+        <li className="flex items-center gap-2.5 rounded-2xl border border-accent/15 bg-card-lavender/50 px-4 py-2.5 text-ink transition-transform hover:scale-[1.02]">
           <Icon name="users" className="h-4 w-4 text-accent" />
           <span>{plan.guests} guests</span>
         </li>
-        <li className="flex items-center gap-2 rounded-xl border border-line bg-paper/80 px-3 py-2 text-ink">
-          <Icon name="wallet" className="h-4 w-4 text-accent" />
+        <li className="flex items-center gap-2.5 rounded-2xl border border-ok/20 bg-card-mint/60 px-4 py-2.5 text-ink transition-transform hover:scale-[1.02]">
+          <Icon name="wallet" className="h-4 w-4 text-ok" />
           <span>{toLakh(plan.totalBudget)} budget</span>
         </li>
-        <li className="flex items-center gap-2 rounded-xl border border-line bg-paper/80 px-3 py-2 text-ink">
-          <Icon name="calendar" className="h-4 w-4 text-accent" />
+        <li className="flex items-center gap-2.5 rounded-2xl border border-line/80 bg-card-peach/60 px-4 py-2.5 text-ink transition-transform hover:scale-[1.02]">
+          <Icon name="calendar" className="h-4 w-4 text-ink" />
           <span>{formatDate(plan.eventDate)}</span>
         </li>
       </ul>

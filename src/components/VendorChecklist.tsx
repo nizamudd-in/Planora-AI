@@ -22,7 +22,7 @@ export function VendorChecklist({
   const confirmed = items.filter((i) => i.status === 'quote_accepted').length;
 
   return (
-    <section className="card shadow-card" aria-labelledby="checklist-h">
+    <section className="card shadow-card-lg rounded-3xl" aria-labelledby="checklist-h">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
           <h2 id="checklist-h" className="text-lg font-bold sm:text-xl">
@@ -33,7 +33,7 @@ export function VendorChecklist({
             status.
           </p>
         </div>
-        <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-bold text-accent">
+        <span className="rounded-full bg-card-lavender/70 border border-accent/20 px-3.5 py-1 text-xs font-bold text-accent shadow-sm">
           {confirmed} of {items.length} vendors confirmed
         </span>
       </div>

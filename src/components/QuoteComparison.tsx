@@ -29,7 +29,10 @@ function CategoryTable({
     ));
 
   return (
-    <section className="card overflow-x-auto shadow-card" aria-labelledby={`cmp-${category}`}>
+    <section
+      className="card overflow-x-auto shadow-card-lg rounded-3xl"
+      aria-labelledby={`cmp-${category}`}
+    >
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line/60 pb-3">
         <h3 id={`cmp-${category}`} className="text-base font-bold text-ink">
           {label}: compare quotations

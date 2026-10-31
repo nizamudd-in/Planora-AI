@@ -84,8 +84,8 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
         className="sticky top-20 z-20"
       >
         {over ? (
-          <div className="flex h-[4.75rem] items-center gap-3.5 rounded-2xl border border-warn/40 bg-warn-soft/95 px-5 text-warn shadow-elevated backdrop-blur-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-warn text-on-accent">
+          <div className="flex h-[4.75rem] items-center gap-3.5 rounded-3xl border border-warn/40 bg-warn-soft/95 px-5 text-warn shadow-elevated backdrop-blur-md">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-warn text-on-accent shadow-sm">
               <Icon name="alert" className="h-5 w-5" />
             </div>
             <div className="min-w-0 flex-1">
@@ -98,15 +98,15 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
             </div>
             <button
               type="button"
-              className="btn-primary min-h-10 shrink-0 border border-warn/30 bg-warn text-white shadow-sm hover:bg-warn/90"
+              className="btn-primary min-h-10 shrink-0 rounded-2xl border border-warn/30 bg-warn text-white shadow-sm hover:bg-warn/90"
               onClick={showOptions}
             >
               Options
             </button>
           </div>
         ) : (
-          <div className="flex h-[4.75rem] items-center gap-3.5 rounded-2xl border border-ok/30 bg-card/95 px-5 text-ink-soft shadow-sm backdrop-blur-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-ok-soft text-ok">
+          <div className="flex h-[4.75rem] items-center gap-3.5 rounded-3xl border border-ok/30 bg-card/95 px-5 text-ink-soft shadow-sm backdrop-blur-md">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-ok-soft text-ok shadow-sm">
               <Icon name="check" className="h-5 w-5 text-ok" />
             </div>
             <p className="truncate text-sm font-semibold text-ink">
@@ -124,7 +124,7 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
           Move one slider and the others adjust to keep the total the same. Lock a category to
           protect it.
         </p>
-        <div className="card divide-y divide-line/60 !p-0 shadow-card">
+        <div className="card divide-y divide-line/60 !p-0 shadow-card overflow-hidden">
           {needs.map((need) => (
             <CategoryRow
               key={need.category}
@@ -198,7 +198,7 @@ export function BudgetTab({ plan, dispatch }: { plan: Plan; dispatch: (action: A
             )}
           </Field>
         </div>
-        <div className="mt-5 rounded-2xl border border-line bg-paper/60 p-4">
+        <div className="mt-5 rounded-3xl border border-accent/20 bg-card-lavender/40 p-4 sm:p-5">
           <p className="tabular text-sm font-medium text-ink" data-testid="guest-impact">
             {plan.guests} guests × {formatINR(Math.round(impact.perPlate))} per plate needs{' '}
             <strong className="font-bold text-accent">{formatINR(impact.requiredCatering)}</strong>{' '}

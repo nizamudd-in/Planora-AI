@@ -56,14 +56,14 @@ function InsightRow({
   const s = SEVERITY[insight.severity];
   return (
     <li
-      className={`flex flex-wrap items-center justify-between gap-3 rounded-xl border p-3.5 transition-all ${s.bg}`}
+      className={`flex flex-wrap items-center justify-between gap-3 rounded-2xl border p-4 transition-all shadow-sm ${s.bg}`}
     >
       <div className="flex min-w-0 flex-1 items-start gap-3">
         <Icon name={s.icon} className={`mt-0.5 h-4 w-4 shrink-0 ${s.tone}`} />
         <div className="min-w-0">
           <p className="font-semibold text-ink">
             <span
-              className={`mr-2 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${s.tone} bg-card/80`}
+              className={`mr-2 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${s.tone} bg-card/90 shadow-sm`}
             >
               {s.label}
             </span>
@@ -74,7 +74,7 @@ function InsightRow({
       </div>
       <button
         type="button"
-        className="btn-secondary min-h-8 shrink-0 px-3 text-xs font-semibold"
+        className="btn-secondary min-h-8 shrink-0 rounded-xl px-3.5 text-xs font-semibold"
         onClick={() => onNavigate(insight.tab)}
       >
         Open {TAB_LABEL[insight.tab]}
@@ -117,10 +117,13 @@ export function AssistantPanel({
     });
 
   return (
-    <section className="card mb-6" aria-labelledby="assistant-h">
+    <section
+      className="card mb-6 shadow-card-lg border-line/60 rounded-3xl"
+      aria-labelledby="assistant-h"
+    >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-soft text-accent">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-card-lavender text-accent shadow-sm">
             <Icon name="sparkle" className="h-5 w-5 text-accent" />
           </div>
           <div>
@@ -143,7 +146,7 @@ export function AssistantPanel({
 
         <button
           type="button"
-          className="btn-secondary min-h-9 px-3.5 text-xs font-semibold"
+          className="btn-secondary min-h-9 px-3.5 text-xs font-semibold rounded-2xl shadow-sm"
           onClick={() => void askAi()}
           disabled={ai.state.status === 'loading'}
         >
@@ -162,7 +165,7 @@ export function AssistantPanel({
         {ai.state.status === 'done' && (
           <div
             data-testid="ai-review"
-            className="rounded-2xl border border-accent/25 bg-accent-soft/40 p-4"
+            className="rounded-3xl border border-accent/25 bg-card-lavender/40 p-5 shadow-sm"
           >
             <p className="text-xs font-bold uppercase tracking-wider text-accent">
               Gemini Executive Review

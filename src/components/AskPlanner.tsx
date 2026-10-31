@@ -71,15 +71,15 @@ export function AskPlanner({ plan, today }: { plan: Plan; today: string }) {
           {turns.map((turn, index) => (
             <li
               key={index}
-              className={`rounded-2xl p-3.5 text-sm shadow-sm transition-all ${
+              className={`rounded-3xl p-4 text-sm shadow-sm transition-all ${
                 turn.role === 'user'
-                  ? 'ml-6 border border-line bg-card sm:ml-12'
-                  : 'mr-6 border border-accent/20 bg-accent-soft sm:mr-12'
+                  ? 'ml-6 border border-line/60 bg-card sm:ml-12'
+                  : 'mr-6 border border-accent/20 bg-card-lavender/40 sm:mr-12'
               }`}
             >
               <div className="mb-1.5 flex items-center gap-2">
                 <span
-                  className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
                     turn.role === 'user'
                       ? 'bg-paper text-ink-soft'
                       : turn.source === 'ai'

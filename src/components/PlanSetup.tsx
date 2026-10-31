@@ -124,8 +124,8 @@ export function PlanSetup({
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
       {!existing && (
-        <div className="rounded-2xl border border-line/60 bg-gradient-to-r from-card to-accent-soft/30 p-6 shadow-sm lg:col-span-2 sm:p-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent-soft px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
+        <div className="rounded-3xl border border-line/60 bg-gradient-to-r from-card via-card to-card-lavender/30 p-6 shadow-card-lg lg:col-span-2 sm:p-8">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent-soft px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-accent shadow-sm">
             Next-Gen Celebration Intelligence
           </div>
           <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
@@ -139,7 +139,12 @@ export function PlanSetup({
       )}
       <DescribeEvent onParsed={applyParsed} />
 
-      <form className="card space-y-5" onSubmit={submit} noValidate aria-labelledby="essentials-h">
+      <form
+        className="card shadow-card-lg space-y-5"
+        onSubmit={submit}
+        noValidate
+        aria-labelledby="essentials-h"
+      >
         <h2 id="essentials-h" className="text-lg font-bold sm:text-xl">
           The essentials
         </h2>
